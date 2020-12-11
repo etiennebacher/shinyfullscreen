@@ -16,3 +16,5 @@ Imports:
     shiny,
     jsonlite,
     magrittr
+URL: https://github.com/etiennebacher/shinyfullscreen
+BugReports: https://github.com/etiennebacher/shinyfullscreen/issues
