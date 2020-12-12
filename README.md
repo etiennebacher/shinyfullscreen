@@ -9,7 +9,26 @@
 
 The goal of `{shinyfullscreen}` is to enable users to put some items on fullscreen. This package is the adaptation in R of [`screenfull.js`](https://github.com/sindresorhus/screenfull.js).
 
-## Installation
+## Table of contents
+
+- [Demos](#demo)
+- [Installation](#installation)
+- [How to use](#howto)
+- [Code of Conduct](#CoC)
+
+
+<h2 id = "demo"> Demos </h2> 
+
+* Two plots can be displayed on full screen
+
+![](fullscreen-those2.gif)
+
+* Interactive graphs and custom background color on fullscreen only
+
+![](echarts-bgcolor.gif)
+
+
+<h2 id = "installation"> Installation </h2> 
 
 For now, you can only install the development version with:
 
@@ -18,7 +37,7 @@ For now, you can only install the development version with:
 devtools::install_github("etiennebacher/shinyfullscreen")
 ```
 
-## How to use
+<h2 id = "howto"> How to use </h2> 
 
 Note that `{shinyfullscreen}` only works when the Shiny app is launched **in the browser**. It won't work in an RStudio window. 
 
@@ -99,16 +118,6 @@ server <- function(input, output, session) {
 shinyApp(ui, server, options = list(launch.browser = TRUE))
 ```
 
-## Demos
-
-* Two plots can be displayed on full screen
-
-![](fullscreen-those2.gif)
-
-* Interactive graphs and custom background color on fullscreen only
-
-![](echarts-bgcolor.gif)
-
-## Code of Conduct
+<h2 id = "CoC"> Code of Conduct </h2> 
 
 Please note that the shinyfullscreen project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
