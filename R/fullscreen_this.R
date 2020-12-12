@@ -31,6 +31,12 @@ fullscreen_this <- function(ui_element, click_id = NULL, bg_color = "#fff") {
   ui_element <- ui_element
   id_element <- ui_element$attribs$id
 
+  # some ui_elements can be list but their organization is a bit different
+  # e.g echarts4rOutput("plot")
+  if (is.null(id_element) && "list" %in% class(ui_element)) {
+    id_element <- unlist(ui_element)["attribs.id"]
+  }
+
   if (missing(click_id)) {
     click_id <- id_element
   }
