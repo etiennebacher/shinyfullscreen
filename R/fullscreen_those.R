@@ -1,6 +1,7 @@
 #' Enable fullscreen for a list of items
 #'
 #' @param items A list containing the ids of the items for which fullscreen is enabled.
+#' @param bg_color Background color when item is displayed full screen. Default is white.
 #'
 #' @details This function has to be placed AFTER the call of inputs. See Examples.
 #' @export
@@ -24,16 +25,16 @@
 #'
 #' shinyApp(ui, server, options = list(launch.browser = TRUE))
 #' }
-fullscreen_those <- function(items = list()){
+fullscreen_those <- function(items = list(), bg_color = "#fff"){
 
-  ids_to_fullscreen <- lapply(items, function(x) {
-    paste0("#", x)
-  }) %>%
-    unlist()
+  ids <- unlist(
+    lapply(items, function(x) {
+      paste0("#", x)
+    })
+  )
 
-  ids_for_JS <- ids_to_fullscreen %>%
+  ids_for_JS <- ids %>%
     jsonlite::toJSON()
-
 
   shiny::tagList(
     shiny::singleton(
@@ -54,11 +55,11 @@ fullscreen_those <- function(items = list()){
     ),
     shiny::tags$style(
       paste0(
-        paste(ids_to_fullscreen, collapse = " "), "{
+        paste(ids, collapse = " "), "{
     			cursor: pointer;
     		}
         ::backdrop {
-            background-color: white;
+            background-color:", bg_color, ";
         }"
       )
     )
