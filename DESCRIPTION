@@ -8,7 +8,8 @@ Authors@R:
            email = "etienne.bacher@protonmail.com")
 Description: In 'shiny' apps, it is sometimes useful to see a plot or a
     table in full screen. Using 'shinyfullscreen', you can easily designate
-    the HTML elements that can be displayed on fullscreen. 
+    the HTML elements that can be displayed on fullscreen and use buttons to 
+    trigger the fullscreen view.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -11,6 +11,9 @@ fullscreen_those(items = list(), bg_color = "#fff")
 
 \item{bg_color}{Background color when item is displayed full screen. Default is white.}
 }
+\value{
+Enables the selected elements to be displayed in fullscreen mode.
+}
 \description{
 Enable fullscreen for a list of items
 }

@@ -4,6 +4,7 @@
 #' @param bg_color Background color when item is displayed fullscreen. Default is white.
 #' @param click_id Id of the item that triggers the fullscreen view. By default, it is the id of `ui_element`, i.e clicking on the element shows it on fullscreen. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view of `ui_element`.
 #'
+#' @return Enables the selected element to be displayed in fullscreen mode.
 #' @export
 #'
 #' @examples

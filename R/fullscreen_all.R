@@ -3,6 +3,7 @@
 #' @param click_id Id of the item that triggers the fullscreen view. This is a mandatory argument. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view for the whole page.
 #' @param bg_color Background color when item is displayed fullscreen. Default is white.
 #'
+#' @return Enables the whole page to be displayed in fullscreen mode.
 #' @export
 #'
 #' @examples

@@ -4,6 +4,7 @@
 #' @param bg_color Background color when item is displayed full screen. Default is white.
 #'
 #' @details This function has to be placed AFTER the call of inputs. See Examples.
+#' @return Enables the selected elements to be displayed in fullscreen mode.
 #' @export
 #' @examples
 #' if (interactive()) {

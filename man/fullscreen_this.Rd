@@ -13,6 +13,9 @@ fullscreen_this(ui_element, click_id = NULL, bg_color = "#fff")
 
 \item{bg_color}{Background color when item is displayed fullscreen. Default is white.}
 }
+\value{
+Enables the selected element to be displayed in fullscreen mode.
+}
 \description{
 Enable fullscreen for a specific item
 }

@@ -11,6 +11,9 @@ fullscreen_all(click_id = NULL, bg_color = "#fff")
 
 \item{bg_color}{Background color when item is displayed fullscreen. Default is white.}
 }
+\value{
+Enables the whole page to be displayed in fullscreen mode.
+}
 \description{
 Enable fullscreen for the whole page
 }
