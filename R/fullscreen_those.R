@@ -60,7 +60,7 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
       ),
       shiny::tags$style(
         paste0(
-          paste(ids, collapse = " "), "{
+          paste(ids, collapse = ", "), "{
     			cursor: pointer;
     		}
         ::backdrop {
