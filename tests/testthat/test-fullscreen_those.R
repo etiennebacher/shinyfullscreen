@@ -43,7 +43,7 @@ test_that("fullscreen_those works with several items", {
 
   expect_equal(
     x,
-    "<script> var ids = [\"#plot\",\"#plot2\"]; $(ids.join(',')).click(function () { screenfull.request(this); });</script><style>#plot #plot2{ cursor: pointer; } ::backdrop { background-color:#fff; }</style>"
+    "<script> var ids = [\"#plot\",\"#plot2\"]; $(ids.join(',')).click(function () { screenfull.request(this); });</script><style>#plot, #plot2{ cursor: pointer; } ::backdrop { background-color:#fff; }</style>"
   )
 
 })
