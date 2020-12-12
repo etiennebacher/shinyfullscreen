@@ -41,6 +41,13 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
 
     ids_for_JS <- jsonlite::toJSON(ids)
 
+    if (length(ids) > 1) {
+      ids_for_CSS <- paste(ids, collapse = ", ")
+    } else {
+      ids_for_CSS <- paste(ids)
+    }
+
+
     shiny::tagList(
       shiny::singleton(
         shiny::tags$head(
@@ -60,7 +67,7 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
       ),
       shiny::tags$style(
         paste0(
-          paste(ids, collapse = ", "), "{
+          ids_for_CSS, "{
     			cursor: pointer;
     		}
         ::backdrop {
