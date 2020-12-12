@@ -29,7 +29,9 @@ fullscreen_those <- function(items = list()){
   ids_to_fullscreen <- lapply(items, function(x) {
     paste0("#", x)
   }) %>%
-    unlist() %>%
+    unlist()
+
+  ids_for_JS <- ids_to_fullscreen %>%
     jsonlite::toJSON()
 
 
@@ -44,10 +46,20 @@ fullscreen_those <- function(items = list()){
     shiny::tags$script(
       paste0(
         "
-        var ids = ", ids_to_fullscreen, ";
+        var ids = ", ids_for_JS, ";
         $(ids.join(',')).click(function () {
           screenfull.request(this);
         });"
+      )
+    ),
+    shiny::tags$style(
+      paste0(
+        paste(ids_to_fullscreen, collapse = " "), "{
+    			cursor: pointer;
+    		}
+        ::backdrop {
+            background-color: white;
+        }"
       )
     )
   )
