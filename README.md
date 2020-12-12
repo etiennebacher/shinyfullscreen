@@ -99,7 +99,15 @@ server <- function(input, output, session) {
 shinyApp(ui, server, options = list(launch.browser = TRUE))
 ```
 
+## Demos
 
+* Two plots can be displayed on full screen
+
+![](fullscreen-those2.gif)
+
+* Interactive graphs and custom background color on fullscreen only
+
+![](echarts-bgcolor.gif)
 
 ## Code of Conduct
 
