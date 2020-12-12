@@ -2,6 +2,9 @@
 # shinyfullscreen
 
 <!-- badges: start -->
+
+[![Codecov.io test coverage](https://codecov.io/gh/etiennebacher/shinyfullscreen/branch/master/graphs/badge.svg)](https://codecov.io/github/etiennebacher/shinyfullscreen)
+
 <!-- badges: end -->
 
 The goal of `{shinyfullscreen}` is to enable users to put some items on fullscreen. This package is the adaptation in R of [`screenfull.js`](https://github.com/sindresorhus/screenfull.js).
