@@ -1,8 +1,7 @@
-#' Enable fullscreen for a specific item
+#' Enable fullscreen for the whole page
 #'
-#' @param ui_element A UI element that should be displayed fullscreen.
+#' @param click_id Id of the item that triggers the fullscreen view. This is a mandatory argument. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view for the whole page.
 #' @param bg_color Background color when item is displayed fullscreen. Default is white.
-#' @param click_id Id of the item that triggers the fullscreen view. By default, it is the id of `ui_element`, i.e clicking on the element shows it on fullscreen. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view of `ui_element`.
 #'
 #' @export
 #'
@@ -14,7 +13,8 @@
 #'
 #' ui <- fluidPage(
 #'   actionButton("test", "test"),
-#'   fullscreen_this(plotOutput("plot"))
+#'   plotOutput("plot"),
+#'   fullscreen_all(click_id = "test")
 #' )
 #'
 #' server <- function(input, output, session) {
@@ -26,13 +26,10 @@
 #' shinyApp(ui, server, options = list(launch.browser = TRUE))
 #' }
 
-fullscreen_this <- function(ui_element, click_id = NULL, bg_color = "#fff") {
-
-  ui_element <- ui_element
-  id_element <- ui_element$attribs$id
+fullscreen_all <- function(click_id = NULL, bg_color = "#fff") {
 
   if (missing(click_id)) {
-    click_id <- id_element
+    stop("Must specify a click_id to put the whole page on fullscreen")
   }
 
   shiny::tagList(
@@ -43,27 +40,23 @@ fullscreen_this <- function(ui_element, click_id = NULL, bg_color = "#fff") {
         )
       )
     ),
-    ui_element,
     shiny::tags$script(
-          paste0(
-            "
+      paste0(
+        "
             $(function () {
         			if (!screenfull.isEnabled) {
         				return false;
         			}
 
               $('#", click_id,"').click(function () {
-        				screenfull.request($('#", id_element, "')[0]);
+        				screenfull.request();
         			});
         		});"
-          )
-        ),
+      )
+    ),
     shiny::tags$style(
       paste0(
-        "#", id_element, "{
-    			cursor: pointer;
-    		}
-        ::backdrop {
+        "::backdrop {
             background-color:", bg_color, ";
         }"
       )

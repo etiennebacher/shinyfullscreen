@@ -4,23 +4,27 @@
 \alias{fullscreen_this}
 \title{Enable fullscreen for a specific item}
 \usage{
-fullscreen_this(ui_element)
+fullscreen_this(ui_element, click_id = NULL, bg_color = "#fff")
 }
 \arguments{
-\item{ui_element}{A UI element that should be wrapped with a spinner when the corresponding output is being calculated.}
+\item{ui_element}{A UI element that should be displayed fullscreen.}
+
+\item{click_id}{Id of the item that triggers the fullscreen view. By default, it is the id of \code{ui_element}, i.e clicking on the element shows it on fullscreen. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view of \code{ui_element}.}
+
+\item{bg_color}{Background color when item is displayed fullscreen. Default is white.}
 }
 \description{
 Enable fullscreen for a specific item
 }
 \examples{
+if (interactive()) {
 ### Only works in browser
 
 library(shiny)
 
 ui <- fluidPage(
   actionButton("test", "test"),
-  plotOutput("plot") \%>\%
-    fullscreen_this()
+  fullscreen_this(plotOutput("plot"))
 )
 
 server <- function(input, output, session) {
@@ -30,4 +34,5 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server, options = list(launch.browser = TRUE))
+}
 }

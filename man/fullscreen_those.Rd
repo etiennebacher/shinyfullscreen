@@ -4,10 +4,12 @@
 \alias{fullscreen_those}
 \title{Enable fullscreen for a list of items}
 \usage{
-fullscreen_those(items = list())
+fullscreen_those(items = list(), bg_color = "#fff")
 }
 \arguments{
 \item{items}{A list containing the ids of the items for which fullscreen is enabled.}
+
+\item{bg_color}{Background color when item is displayed full screen. Default is white.}
 }
 \description{
 Enable fullscreen for a list of items
@@ -16,20 +18,24 @@ Enable fullscreen for a list of items
 This function has to be placed AFTER the call of inputs. See Examples.
 }
 \examples{
-if (interactive) {
+if (interactive()) {
 ### Only works in browser
 
 library(shiny)
+library(shinyfullscreen)
 
 ui <- fluidPage(
-  actionButton("test", "test"),
   plotOutput("plot"),
-  fullscreen_those(c("test", "plot")) #' HAS TO BE PLACED AFTER THE INPUTS
+  plotOutput("plot2"),
+
+  # Has to be placed after plot and plot2
+  fullscreen_those(items = list("plot", "plot2"))
 )
 
 server <- function(input, output, session) {
 
   output$plot <- renderPlot(plot(mtcars))
+  output$plot2 <- renderPlot(plot(AirPassengers))
 
 }
 

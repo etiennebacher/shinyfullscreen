@@ -19,7 +19,7 @@ devtools::install_github("etiennebacher/shinyfullscreen")
 
 Note that `{shinyfullscreen}` only works when the Shiny app is launched **in the browser**. It won't work in an RStudio window. 
 
-This package provides two functions that are very similar:
+This package provides three functions that are very similar:
 
 * `fullscreen_this()` is useful if you want to enable fullscreen for few elements. Simply wrap this function around the element for which you want to enable fullscreen, and then click on this element when the app runs to display it on fullscreen:
 
@@ -68,6 +68,29 @@ server <- function(input, output, session) {
   output$plot <- renderPlot(plot(mtcars))
   output$plot2 <- renderPlot(plot(AirPassengers))
   
+}
+
+shinyApp(ui, server, options = list(launch.browser = TRUE))
+```
+
+* `fullscreen_all()` allows you to put the whole page in fullscreen mode. Note however that this requires clicking on an HTML element.
+
+```R
+### Only works in browser
+
+library(shiny)
+library(shinyfullscreen)
+
+ui <- fluidPage(
+  actionButton("page_full", "Show page in fullscreen"),
+  plotOutput("plot"),
+  fullscreen_all(click_id = "page_full")
+)
+
+server <- function(input, output, session) {
+
+  output$plot <- renderPlot(plot(mtcars))
+
 }
 
 shinyApp(ui, server, options = list(launch.browser = TRUE))

@@ -6,20 +6,24 @@
 #' @details This function has to be placed AFTER the call of inputs. See Examples.
 #' @export
 #' @examples
-#' if (interactive) {
+#' if (interactive()) {
 #' ### Only works in browser
 #'
 #' library(shiny)
+#' library(shinyfullscreen)
 #'
 #' ui <- fluidPage(
-#'   actionButton("test", "test"),
 #'   plotOutput("plot"),
-#'   fullscreen_those(c("test", "plot")) #' HAS TO BE PLACED AFTER THE INPUTS
+#'   plotOutput("plot2"),
+#'
+#'   # Has to be placed after plot and plot2
+#'   fullscreen_those(items = list("plot", "plot2"))
 #' )
 #'
 #' server <- function(input, output, session) {
 #'
 #'   output$plot <- renderPlot(plot(mtcars))
+#'   output$plot2 <- renderPlot(plot(AirPassengers))
 #'
 #' }
 #'
@@ -33,36 +37,39 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
     })
   )
 
-  ids_for_JS <- ids %>%
-    jsonlite::toJSON()
+  if (!is.null(ids)) {
 
-  shiny::tagList(
-    shiny::singleton(
-      shiny::tags$head(
-        shiny::tags$script(
-          src="shinyfullscreen-assets/screenfull/screenfull.min.js"
+    ids_for_JS <- jsonlite::toJSON(ids)
+
+    shiny::tagList(
+      shiny::singleton(
+        shiny::tags$head(
+          shiny::tags$script(
+            src="shinyfullscreen-assets/screenfull/screenfull.min.js"
+          )
         )
-      )
-    ),
-    shiny::tags$script(
-      paste0(
-        "
+      ),
+      shiny::tags$script(
+        paste0(
+          "
         var ids = ", ids_for_JS, ";
         $(ids.join(',')).click(function () {
           screenfull.request(this);
         });"
-      )
-    ),
-    shiny::tags$style(
-      paste0(
-        paste(ids, collapse = " "), "{
+        )
+      ),
+      shiny::tags$style(
+        paste0(
+          paste(ids, collapse = " "), "{
     			cursor: pointer;
     		}
         ::backdrop {
             background-color:", bg_color, ";
         }"
+        )
       )
     )
-  )
+
+  }
 
 }
