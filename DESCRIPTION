@@ -1,14 +1,14 @@
 Package: shinyfullscreen
-Title: Display HTML Elements on Full Screen in 'shiny' Apps
+Title: Display 'HTML' Elements on Full Screen in 'Shiny' Apps
 Version: 1.0.0
 Authors@R: 
     person(given = "Etienne",
            family = "Bacher",
            role = c("aut", "cre", "cph"),
            email = "etienne.bacher@protonmail.com")
-Description: In 'shiny' apps, it is sometimes useful to see a plot or a
-    table in full screen. Using 'shinyfullscreen', you can easily designate
-    the HTML elements that can be displayed on fullscreen and use buttons to 
+Description: In 'Shiny' apps, it is sometimes useful to see a plot or a
+    table in full screen. Using 'Shinyfullscreen', you can easily designate
+    the 'HTML' elements that can be displayed on fullscreen and use buttons to 
     trigger the fullscreen view.
 License: MIT + file LICENSE
 Encoding: UTF-8
