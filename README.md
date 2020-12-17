@@ -3,9 +3,7 @@
 
 <!-- badges: start -->
 
-[![Codecov.io test coverage](https://codecov.io/gh/etiennebacher/shinyfullscreen/branch/master/graphs/badge.svg)](https://codecov.io/github/etiennebacher/shinyfullscreen)
-
-[![R build status](https://github.com/etiennebacher/shinyfullscreen/workflows/R-CMD-check/badge.svg)](https://github.com/etiennebacher/shinyfullscreen/actions)
+[![Codecov.io test coverage](https://codecov.io/gh/etiennebacher/shinyfullscreen/branch/master/graphs/badge.svg)](https://codecov.io/github/etiennebacher/shinyfullscreen) [![R build status](https://github.com/etiennebacher/shinyfullscreen/workflows/R-CMD-check/badge.svg)](https://github.com/etiennebacher/shinyfullscreen/actions) [![CRAN status](https://www.r-pkg.org/badges/version/shinyfullscreen)](https://CRAN.R-project.org/package=shinyfullscreen)
 <!-- badges: end -->
 
 The goal of `{shinyfullscreen}` is to enable users to put some items on fullscreen. This package is the adaptation in R of [`screenfull.js`](https://github.com/sindresorhus/screenfull.js).
