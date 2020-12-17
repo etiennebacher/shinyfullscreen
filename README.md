@@ -29,7 +29,12 @@ The goal of `{shinyfullscreen}` is to enable users to put some items on fullscre
 
 <h2 id = "installation"> Installation </h2> 
 
-For now, you can only install the development version with:
+Install the CRAN version with:
+```r
+install.packages("shinyfullscreen")
+```
+
+Install the development version with:
 
 ``` r
 # install.packages("devtools")
