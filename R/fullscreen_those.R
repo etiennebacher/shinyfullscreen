@@ -69,7 +69,8 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
       shiny::tags$style(
         paste0(
           ids_for_CSS, "{
-    			cursor: pointer;
+    			cursor: -webkit-zoom-in;
+    			cursor: -moz-zoom-in;
     		}
         ::backdrop {
             background-color:", bg_color, ";
