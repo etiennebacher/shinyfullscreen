@@ -1,6 +1,6 @@
 Package: shinyfullscreen
 Title: Display 'HTML' Elements on Full Screen in 'Shiny' Apps
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: 
     person(given = "Etienne",
            family = "Bacher",
