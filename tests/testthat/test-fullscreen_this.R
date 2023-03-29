@@ -4,34 +4,34 @@ test_that("fullscreen_this throws an error if no ui_element", {
 
 
 test_that("fullscreen_this produces the right JS", {
-  shiny::plotOutput("plot") %>%
+  x <- shiny::plotOutput("plot") %>%
     fullscreen_this() %>%
     paste() %>%
     gsub("\\t", "", .) %>%
     gsub("\\n", "", .) %>%
     # remove additional spaces
-    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE) %>%
-    expect_snapshot_output()
+    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE)
+  expect_snapshot(x)
 })
 
 test_that("argument click_id works", {
-  shiny::plotOutput("plot") %>%
+  x <- shiny::plotOutput("plot") %>%
     fullscreen_this(click_id = "other_id") %>%
     paste() %>%
     gsub("\\t", "", .) %>%
     gsub("\\n", "", .) %>%
     # remove additional spaces
-    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE) %>%
-    expect_snapshot_output()
+    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE)
+  expect_snapshot(x)
 })
 
 test_that("argument bg_color works", {
-  shiny::plotOutput("plot") %>%
+  x <- shiny::plotOutput("plot") %>%
     fullscreen_this(bg_color = "pink") %>%
     paste() %>%
     gsub("\\t", "", .) %>%
     gsub("\\n", "", .) %>%
     # remove additional spaces
-    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE) %>%
-    expect_snapshot_output()
+    gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", ., perl = TRUE)
+  expect_snapshot(x)
 })

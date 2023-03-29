@@ -4,7 +4,7 @@
 \alias{fullscreen_this}
 \title{Enable fullscreen for a specific item}
 \usage{
-fullscreen_this(ui_element, click_id = NULL, bg_color = "#fff")
+fullscreen_this(ui_element, click_id = NULL, bg_color = "#fff", cursor = TRUE)
 }
 \arguments{
 \item{ui_element}{A UI element that should be displayed fullscreen.}
@@ -12,6 +12,9 @@ fullscreen_this(ui_element, click_id = NULL, bg_color = "#fff")
 \item{click_id}{Id of the item that triggers the fullscreen view. By default, it is the id of \code{ui_element}, i.e clicking on the element shows it on fullscreen. You can specify the id of a button for instance, so that clicking on this button triggers the fullscreen view of \code{ui_element}.}
 
 \item{bg_color}{Background color when item is displayed fullscreen. Default is white.}
+
+\item{cursor}{Display a special "zoom-in" cursor when hovering the element?
+Default is \code{TRUE}.}
 }
 \value{
 Enables the selected element to be displayed in fullscreen mode.

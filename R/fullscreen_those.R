@@ -2,6 +2,8 @@
 #'
 #' @param items A list containing the ids of the items for which fullscreen is enabled.
 #' @param bg_color Background color when item is displayed full screen. Default is white.
+#' @param cursor Display a special "zoom-in" cursor when hovering the element?
+#' Default is `TRUE`.
 #'
 #' @details This function has to be placed AFTER the call of inputs. See Examples.
 #' @return Enables the selected elements to be displayed in fullscreen mode.
@@ -30,7 +32,7 @@
 #'
 #' shinyApp(ui, server, options = list(launch.browser = TRUE))
 #' }
-fullscreen_those <- function(items = list(), bg_color = "#fff"){
+fullscreen_those <- function(items = list(), bg_color = "#fff", cursor = TRUE){
 
   ids <- unlist(
     lapply(items, function(x) {
@@ -66,16 +68,20 @@ fullscreen_those <- function(items = list(), bg_color = "#fff"){
         });"
         )
       ),
-      shiny::tags$style(
-        paste0(
-          ids_for_CSS, "{
-    			cursor: -webkit-zoom-in;
-    			cursor: -moz-zoom-in;
-    		}
-        ::backdrop {
-            background-color:", bg_color, ";
-        }"
+      if(isTRUE(cursor)){
+        shiny::tags$style(
+          paste0(
+            "#", ids_for_CSS, "{
+      			cursor: -webkit-zoom-in;
+      			cursor: -moz-zoom-in;
+      		}"
+          )
         )
+      },
+      shiny::tags$style(
+        '::backdrop {
+          background-color:", bg_color, ";
+       }'
       )
     )
 

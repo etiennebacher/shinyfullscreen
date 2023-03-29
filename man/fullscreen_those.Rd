@@ -4,12 +4,15 @@
 \alias{fullscreen_those}
 \title{Enable fullscreen for a list of items}
 \usage{
-fullscreen_those(items = list(), bg_color = "#fff")
+fullscreen_those(items = list(), bg_color = "#fff", cursor = TRUE)
 }
 \arguments{
 \item{items}{A list containing the ids of the items for which fullscreen is enabled.}
 
 \item{bg_color}{Background color when item is displayed full screen. Default is white.}
+
+\item{cursor}{Display a special "zoom-in" cursor when hovering the element?
+Default is \code{TRUE}.}
 }
 \value{
 Enables the selected elements to be displayed in fullscreen mode.
