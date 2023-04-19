@@ -43,7 +43,7 @@ fullscreen_button <- function(
   cl <- sprintf("btn btn-%s", type)
   cl <- paste(cl, class)
 
-  args <- list(class = cl, label, id)
+  args <- list(class = cl, label, id = id)
 
   ui_element <- do.call(shiny::a, args)
 
@@ -60,13 +60,11 @@ fullscreen_button <- function(
       paste0(
         "
             $(function () {
-        			if (!screenfull.isEnabled) {
-        				return false;
+        			if (screenfull.isEnabled) {
+                $('#", id,"').click(function () {
+          				screenfull.toggle($('", target, "')[0]);
+          			});
         			}
-
-              $('#", id,"').click(function () {
-        				screenfull.toggle($('", target, "')[0]);
-        			});
         		});"
       )
     )
