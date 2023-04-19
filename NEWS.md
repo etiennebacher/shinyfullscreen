@@ -3,6 +3,9 @@
 * Add argument `cursor` to `fullscreen_this()` and `fullscreen_those()` to either
   show or hide the "zoom-in" cursor when hovering the element (thanks to 
   @arnaudmilet for the suggestion and the code, #4).
+  
+* Add function `fullscreen_button()` to toggle a specific element or the whole
+  page to full screen (#5).
 
 # shinyfullscreen 1.1.0
 
