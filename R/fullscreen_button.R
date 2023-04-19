@@ -33,7 +33,7 @@ fullscreen_button <- function(
     id,
     label,
     class = NULL,
-    type = "info",
+    type = "default",
     target = NULL
 ){
 
