@@ -4,7 +4,7 @@
 \alias{fullscreen_button}
 \title{Button that toggles fullscreen}
 \usage{
-fullscreen_button(id, label, class = NULL, type = "info", target = NULL)
+fullscreen_button(id, label, class = NULL, type = "default", target = NULL)
 }
 \arguments{
 \item{id}{Id of the button}
