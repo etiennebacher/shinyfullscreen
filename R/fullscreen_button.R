@@ -6,6 +6,7 @@
 #' @param type Type of the button ("info", "danger", etc.)
 #' @param target Id of the element to put on fullscreen. If `NULL`, the whole
 #' page is put on fullscreen.
+#' @param icon Icon to add before the label on the button
 #'
 #' @return Put an element or the whole page on fullscreen
 #' @export
@@ -34,7 +35,8 @@ fullscreen_button <- function(
     label,
     class = NULL,
     type = "default",
-    target = NULL
+    target = NULL,
+    icon = NULL
 ){
 
   target <- if (is.null(target)) "body" else paste0("#", target)
@@ -43,9 +45,9 @@ fullscreen_button <- function(
   cl <- sprintf("btn btn-%s", type)
   cl <- paste(cl, class)
 
-  args <- list(class = cl, label, id = id)
+  args <- list(class = cl, label = label, inputId = id, icon = icon)
 
-  ui_element <- do.call(shiny::a, args)
+  ui_element <- do.call(shiny::actionButton, args)
 
   shiny::tagList(
     shiny::singleton(

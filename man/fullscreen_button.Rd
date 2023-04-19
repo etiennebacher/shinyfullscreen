@@ -4,7 +4,14 @@
 \alias{fullscreen_button}
 \title{Button that toggles fullscreen}
 \usage{
-fullscreen_button(id, label, class = NULL, type = "default", target = NULL)
+fullscreen_button(
+  id,
+  label,
+  class = NULL,
+  type = "default",
+  target = NULL,
+  icon = NULL
+)
 }
 \arguments{
 \item{id}{Id of the button}
@@ -17,6 +24,8 @@ fullscreen_button(id, label, class = NULL, type = "default", target = NULL)
 
 \item{target}{Id of the element to put on fullscreen. If \code{NULL}, the whole
 page is put on fullscreen.}
+
+\item{icon}{Icon to add before the label on the button}
 }
 \value{
 Put an element or the whole page on fullscreen
