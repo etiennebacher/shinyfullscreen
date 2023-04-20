@@ -50,6 +50,13 @@ fullscreen_this <- function(ui_element, click_id = NULL, bg_color = "#fff",
       shiny::tags$head(
         shiny::tags$script(
           src="shinyfullscreen-assets/screenfull/screenfull.min.js"
+        ),
+        shiny::tags$style(
+          shiny::HTML(
+            ":fullscreen, ::backdrop {
+              background-color: transparent;
+            }"
+          )
         )
       )
     ),

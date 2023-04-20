@@ -57,6 +57,13 @@ fullscreen_those <- function(items = list(), bg_color = "#fff", cursor = TRUE){
           shiny::tags$script(
             src="shinyfullscreen-assets/screenfull/screenfull.min.js"
           )
+        ),
+        shiny::tags$style(
+          shiny::HTML(
+            ":fullscreen, ::backdrop {
+              background-color: transparent;
+            }"
+          )
         )
       ),
       shiny::tags$script(
